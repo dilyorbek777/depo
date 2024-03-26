@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const Portfolio = () => {
@@ -179,7 +180,13 @@ const PortfolioCard = ({
       >
         <div className="relative mb-12">
           <div className="overflow-hidden rounded-[10px]">
-            <img src={ImageHref} alt="portfolio" className="w-full" />
+            <Image
+              width={500}
+              height={500}
+              src={ImageHref}
+              alt="portfolio"
+              className="w-full"
+            />
           </div>
           <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-background dark:bg-accent py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
             <span className="text-primary mb-2 block text-sm font-medium">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const MiniBlog = () => {
@@ -66,7 +67,13 @@ const BlogCard = ({
       <div className="w-full px-4 md:w-1/2 lg:w-1/3">
         <div className="mb-10 w-full">
           <div className="mb-8 overflow-hidden rounded">
-            <img src={image} alt="" className="w-full" />
+            <Image
+              width={500}
+              height={500}
+              src={image}
+              alt=""
+              className="w-full"
+            />
           </div>
           <div>
             {date && (
