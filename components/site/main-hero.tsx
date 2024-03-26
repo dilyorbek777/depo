@@ -35,7 +35,7 @@ export default function MainHero() {
           href="#demo"
           className="flex flex-row items-center  justify-center gap-x-2 rounded-lg border-2 border-border px-10 py-3 text-primary"
         >
-          Learn More →
+          Learn More 
         </Link>
       </div>
     </div>
