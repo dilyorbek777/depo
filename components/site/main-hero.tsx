@@ -29,7 +29,7 @@ export default function MainHero() {
           href="https://example.com/new-feature"
           className="flex flex-row items-center  justify-center gap-x-2 rounded-lg text-white px-10 py-3 bg-primary hover:bg-primary/70"
         >
-          Let's start
+          Lets start
         </Link>
         <Link
           href="#demo"
