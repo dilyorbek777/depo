@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
+import CustomImage from "./customImage";
 
 const Portfolio = () => {
   const [showCard, setShowCard] = useState("all");
@@ -180,12 +182,10 @@ const PortfolioCard = ({
       >
         <div className="relative mb-12">
           <div className="overflow-hidden rounded-[10px]">
-            <Image
-              width={500}
-              height={500}
+            <CustomImage
               src={ImageHref}
               alt="portfolio"
-              className="w-full"
+              classname="w-full"
             />
           </div>
           <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-background dark:bg-accent py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
@@ -195,12 +195,12 @@ const PortfolioCard = ({
             <h3 className="text-dark dark:text-white mb-5 text-xl font-bold">
               {title}
             </h3>
-            <a
+            <Link
               href={buttonHref}
               className="text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary inline-block rounded-md border border-stroke dark:border-dark-3 py-[10px] px-7 text-sm font-medium transition hover:text-white"
             >
               {button}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

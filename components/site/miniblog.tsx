@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import CustomImage from "./customImage";
 
 const MiniBlog = () => {
   return (
@@ -67,12 +69,10 @@ const BlogCard = ({
       <div className="w-full px-4 md:w-1/2 lg:w-1/3">
         <div className="mb-10 w-full">
           <div className="mb-8 overflow-hidden rounded">
-            <Image
-              width={500}
-              height={500}
+            <CustomImage
               src={image}
               alt=""
-              className="w-full"
+              classname="w-full"
             />
           </div>
           <div>
@@ -82,12 +82,12 @@ const BlogCard = ({
               </span>
             )}
             <h3>
-              <a
+              <Link
                 href="/#"
                 className="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary dark:text-white sm:text-2xl lg:text-xl xl:text-2xl"
               >
                 {CardTitle}
-              </a>
+              </Link>
             </h3>
             <p className="text-base text-body-color dark:text-dark-6">
               {CardDescription}

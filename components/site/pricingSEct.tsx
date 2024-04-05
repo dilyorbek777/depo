@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Pricing = () => {
@@ -109,7 +110,7 @@ const PricingCard = ({
             {description}
           </p>
           <div className="mb-9 flex flex-col gap-[14px]">{children}</div>
-          <a
+          <Link
             href="/#"
             className={` ${
               active
@@ -118,7 +119,7 @@ const PricingCard = ({
             } `}
           >
             {buttonText}
-          </a>
+          </Link>
           <div>
             <span className="absolute right-0 top-7 z-[-1]">
               <svg

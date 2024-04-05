@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import Navbar from "@/components/site/navbar";
 import { Analytics } from "@vercel/analytics/react";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ConvexClientProvider } from "@/components/providers/convex-provider";
 
 const inter = Kanit({ subsets: ["latin"], weight: "500" });
 // const inter = Kanit();
@@ -21,17 +23,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " tracking-wider font-bold"}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
+        <ConvexClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            {children}
 
-          <Analytics />
-        </ThemeProvider>
+            <Analytics />
+          </ThemeProvider>
+        </ConvexClientProvider>
       </body>
     </html>
   );

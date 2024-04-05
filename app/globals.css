@@ -275,3 +275,16 @@
 .react-datepicker__time-list-item--selected {
   background-color: #624cf5 !important;
 }
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #33CC99;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  width: 5px;
+  border-radius: 20px;
+  border: 1px solid #33CC99;
+}

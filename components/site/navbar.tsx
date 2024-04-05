@@ -4,6 +4,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { ThemeChanger } from "./theme-changer";
 import { Button } from "../ui/button";
+import { useConvexAuth } from "convex/react";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { Loader } from "../ui/loader";
+import CustomLoader from "./customLoader";
 
 const links = [
   { title: "News", a: "news" },
@@ -13,6 +17,7 @@ const links = [
 ];
 
 export default function Navbar() {
+  const { isAuthenticated, isLoading } = useConvexAuth();
   const [open, setOpen] = useState(false);
   return (
     <div className="w-full z-20 bg-background  fixed top-0 left-0">
@@ -20,6 +25,7 @@ export default function Navbar() {
         <Link
           href={"/"}
           className="text-4xl font-black flex-center gap-3 text-primary"
+          
         >
           <CodeXml size={30} />
           DEPO
@@ -28,12 +34,12 @@ export default function Navbar() {
           className={
             open
               ? "fixed top-0 left-0 h-screen flex-col  bg-background flex-center w-full gap-10"
-              : "flex gap-10 max-lg:hidden"
+              : "flex items-center gap-10 max-lg:hidden"
           }
         >
           <div className="flex-center gap-10 text-xl tracking-widest max-lg:flex-col">
             {links.map((l) => (
-              <Link href={l.a} key={l.a}>
+              <Link href={l.a} onClick={()=>(setOpen(false))} key={l.a}>
                 {l.title}
               </Link>
             ))}
@@ -49,6 +55,31 @@ export default function Navbar() {
             <X />
           </Button>
           <ThemeChanger />
+          {isLoading && <CustomLoader />}
+          {isAuthenticated && !isLoading && (
+            <>
+              <Button variant={"default"} size={"sm"} asChild>
+                <Link href={"/"}>Dashboard</Link>
+              </Button>
+              <Button className="w-max p-1 " variant={"outline"}>
+                <UserButton afterSignOutUrl="/" />
+              </Button>
+            </>
+          )}
+          {!isAuthenticated && !isLoading && (
+            <>
+              <SignInButton mode="modal">
+                <Button variant={"outline"} className="w-full">
+                  Sign in
+                </Button>
+              </SignInButton>
+              <SignInButton mode="modal">
+                <Button variant={"default"} className="w-full">
+                  Sign up
+                </Button>
+              </SignInButton>
+            </>
+          )}
         </div>
         <Button onClick={() => setOpen(!open)} className="hidden max-lg:flex">
           <svg
