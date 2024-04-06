@@ -629,7 +629,7 @@ const About1 = () => {
                   potential collaborators, expands your clientele, and empowers
                   you to utilize resources without limitations. Stay informed
                   and up-to-date on the latest industry events, ensuring your
-                  success in today's dynamic landscape.
+                  success in todays dynamic landscape.
                 </p>
                 <Link
                   href="/about"
